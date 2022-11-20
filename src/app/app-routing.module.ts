@@ -1,24 +1,38 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { CartaoAdicionarComponent } from './cartao/cartao-adicionar/cartao-adicionar.component';
+import { CartaoComponent } from './cartao/cartao.component';
+import { CompraCartaoComponent } from './compra-cartao/compra-cartao.component';
+import { DespesaFixaComponent } from './despesa-fixa/despesa-fixa.component';
+import { DespesaComponent } from './despesa/despesa.component';
+import { GastoComponent } from './gasto/gasto.component';
+import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [{
   path: '',
-  loadChildren: () => import('./home/home-routing.module').then(m => m.HomeRoutingModule)
+  pathMatch: 'full',
+  component: HomeComponent
 }, {
   path: 'cartoes',
-  loadChildren: () => import('./cartao/cartao-routing.module').then(m => m.CartaoRoutingModule)
+  children: [{
+    path: '',
+    component: CartaoComponent,
+  }, {
+    path: 'adicionar',
+    component: CartaoAdicionarComponent
+  }]
 }, {
   path: 'compras-cartao',
-  loadChildren: () => import('./compra-cartao/compra-cartao.module').then(m => m.CompraCartaoModule)
+  component: CompraCartaoComponent
 }, {
   path: 'despesas',
-  loadChildren: () => import('./despesa/despesa-routing.module').then(m => m.DespesaRoutingModule)
+  component: DespesaComponent
 }, {
   path: 'despesas-fixas',
-  loadChildren: () => import('./despesa-fixa/despesa-fixa-routing.module').then(m => m.DespesaFixaRoutingModule)
+  component: DespesaFixaComponent
 }, {
   path: 'gastos',
-  loadChildren: () => import('./gasto/gasto-routing.module').then(m => m.GastoRoutingModule)
+  component: GastoComponent
 }];
 
 @NgModule({
