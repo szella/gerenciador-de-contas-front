@@ -1,4 +1,17 @@
 <div>
     <a routerLink="adicionar">Adicionar</a>
 </div>
-cartao works!
+<table>
+    <thead>
+        <th>Id</th>
+        <th>Nome</th>
+        <th>Ação</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let cartao of cartoes">
+            <td>{{cartao.id}}</td>
+            <td>{{cartao.nome}}</td>
+            <td></td>
+        </tr>
+    </tbody>
+</table>
