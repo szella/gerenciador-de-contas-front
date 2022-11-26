@@ -1,1 +1,17 @@
-<p>despesa works!</p>
+<div>
+    <a routerLink="adicionar">Adicionar</a>
+</div>
+<table>
+    <thead>
+        <th>Id</th>
+        <th>Nome</th>
+        <th>Ação</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let despesa of despesas">
+            <td>{{despesa.id}}</td>
+            <td>{{despesa.nome}}</td>
+            <td></td>
+        </tr>
+    </tbody>
+</table>

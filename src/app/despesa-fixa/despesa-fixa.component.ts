@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { DespesaFixa } from '../compartilhado/model/despesa-fixa';
+import { DespesaFixaService } from '../compartilhado/service/despesa-fixa.service';
 
 @Component({
   selector: 'app-despesa-fixa',
@@ -7,4 +9,19 @@ import { Component } from '@angular/core';
 })
 export class DespesaFixaComponent {
 
+  despesasFixa: DespesaFixa[] = [];
+
+  constructor(private despesaFixaService: DespesaFixaService) { }
+
+  ngOnInit(): void {
+    this.buscarTodos()
+  }
+
+  buscarTodos(): void {
+    this.despesaFixaService.listarTodos().subscribe(
+      (result: DespesaFixa[]) => {
+        this.despesasFixa = result ? result : [];
+      }
+    );
+  }
 }

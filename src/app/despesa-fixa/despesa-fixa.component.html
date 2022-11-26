@@ -1,1 +1,25 @@
-<p>despesa-fixa works!</p>
+<div>
+    <a routerLink="adicionar">Adicionar</a>
+</div>
+<table>
+    <thead>
+        <th>Id</th>
+        <th>Valor</th>
+        <th>Mês</th>
+        <th>Ano</th>
+        <th>Data Cadastro</th>
+        <th>Despesa</th>
+        <th>Ação</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let despesaFixa of despesasFixa">
+            <td>{{despesaFixa.id}}</td>
+            <td>{{despesaFixa.valor}}</td>
+            <td>{{despesaFixa.mes}}</td>
+            <td>{{despesaFixa.ano}}</td>
+            <td>{{despesaFixa.dataCadastro}}</td>
+            <td>{{despesaFixa.despesa?.nome}}</td>
+            <td></td>
+        </tr>
+    </tbody>
+</table>

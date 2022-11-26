@@ -13,9 +13,7 @@ export class CartaoComponent implements OnInit {
 
   constructor(private cartaoService: CartaoService) { }
 
-
   ngOnInit(): void {
-
     this.buscarTodos()
   }
 
@@ -26,7 +24,4 @@ export class CartaoComponent implements OnInit {
       }
     );
   }
-
-
-
 }

@@ -1,1 +1,27 @@
-<p>compra-cartao works!</p>
+<div>
+    <a routerLink="adicionar">Adicionar</a>
+</div>
+<table>
+    <thead>
+        <th>Id</th>
+        <th>Nome</th>
+        <th>Valor</th>
+        <th>Mês</th>
+        <th>Ano</th>
+        <th>Data Cadastro</th>
+        <th>Cartão</th>
+        <th>Ação</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let compraCartao of ComprasCartao">
+            <td>{{compraCartao.id}}</td>
+            <td>{{compraCartao.nome}}</td>
+            <td>{{compraCartao.valor}}</td>
+            <td>{{compraCartao.mes}}</td>
+            <td>{{compraCartao.ano}}</td>
+            <td>{{compraCartao.dataCadastro}}</td>
+            <td>{{compraCartao.cartao?.nome}}</td>
+            <td></td>
+        </tr>
+    </tbody>
+</table>
