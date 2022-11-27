@@ -1,8 +1,8 @@
-import { CompraCartao } from "./compra-cartao"
-import { DespesaFixa } from "./despesa-fixa"
+import { CompraCartao } from './compra-cartao';
+import { DespesaFixa } from './despesa-fixa';
 
 export interface GastosPorMes {
-    mes?: number
-    comprasCartao?: CompraCartao
-    despesasFixa?: DespesaFixa
+  mes?: number;
+  comprasCartao?: CompraCartao;
+  despesasFixa?: DespesaFixa;
 }

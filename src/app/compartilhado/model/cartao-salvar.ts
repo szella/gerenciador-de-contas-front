@@ -1,3 +1,3 @@
 export interface CartaoSalvar {
-    nome?: string
+  nome?: string;
 }

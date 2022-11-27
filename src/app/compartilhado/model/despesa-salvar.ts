@@ -1,3 +1,3 @@
 export interface DespesaSalvar {
-    nome?: string
+  nome?: string;
 }

@@ -6,13 +6,13 @@ import { Despesa } from '../model/despesa';
 import { DespesaEditar } from '../model/despesa-editar';
 import { DespesaSalvar } from '../model/despesa-salvar';
 
-const URL = environment.url_api + "/despesas"
+const URL = environment.url_api + '/despesas';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class DespesaService {
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   listarTodos(): Observable<Despesa[]> {
     return this.http.get<Despesa[]>(`${URL}`);
@@ -23,11 +23,11 @@ export class DespesaService {
   }
 
   salvar(object: DespesaSalvar): Observable<Despesa> {
-    return this.http.post<Despesa>(`${URL}`, object)
+    return this.http.post<Despesa>(`${URL}`, object);
   }
 
   editar(id: number, object: DespesaEditar): Observable<Despesa> {
-    return this.http.put<Despesa>(`${URL}/${id}`, object)
+    return this.http.put<Despesa>(`${URL}/${id}`, object);
   }
 
   deletar(id: number): Observable<void> {

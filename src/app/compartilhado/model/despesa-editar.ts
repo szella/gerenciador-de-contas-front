@@ -1,3 +1,3 @@
 export interface DespesaEditar {
-    nome?: string
+  nome?: string;
 }

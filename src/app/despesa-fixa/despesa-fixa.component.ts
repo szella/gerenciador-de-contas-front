@@ -5,23 +5,26 @@ import { DespesaFixaService } from '../compartilhado/service/despesa-fixa.servic
 @Component({
   selector: 'app-despesa-fixa',
   templateUrl: './despesa-fixa.component.html',
-  styleUrls: ['./despesa-fixa.component.scss']
+  styleUrls: ['./despesa-fixa.component.scss'],
 })
 export class DespesaFixaComponent {
-
   despesasFixa: DespesaFixa[] = [];
 
-  constructor(private despesaFixaService: DespesaFixaService) { }
+  constructor(private despesaFixaService: DespesaFixaService) {}
 
   ngOnInit(): void {
-    this.buscarTodos()
+    this.buscarTodos();
   }
 
   buscarTodos(): void {
-    this.despesaFixaService.listarTodos().subscribe(
-      (result: DespesaFixa[]) => {
-        this.despesasFixa = result ? result : [];
-      }
-    );
+    this.despesaFixaService.listarTodos().subscribe((result: DespesaFixa[]) => {
+      this.despesasFixa = result ? result : [];
+    });
+  }
+
+  deletar(id: number): void {
+    this.despesaFixaService.deletar(id).subscribe(() => {
+      this.buscarTodos();
+    });
   }
 }

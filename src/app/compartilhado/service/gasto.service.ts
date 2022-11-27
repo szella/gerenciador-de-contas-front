@@ -4,13 +4,13 @@ import { Observable } from 'rxjs';
 import { environment } from 'src/environment/environment';
 import { GastosPorAno } from '../model/gastos-por-ano';
 
-const URL = environment.url_api + "/gastos"
+const URL = environment.url_api + '/gastos';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class GastoService {
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   listarTodos(): Observable<GastosPorAno[]> {
     return this.http.get<GastosPorAno[]>(`${URL}`);

@@ -5,23 +5,28 @@ import { CompraCartaoService } from '../compartilhado/service/compra-cartao.serv
 @Component({
   selector: 'app-compra-cartao',
   templateUrl: './compra-cartao.component.html',
-  styleUrls: ['./compra-cartao.component.scss']
+  styleUrls: ['./compra-cartao.component.scss'],
 })
 export class CompraCartaoComponent implements OnInit {
+  ComprasCartao: CompraCartao[] = [];
 
-  ComprasCartao: CompraCartao[] = []
-
-  constructor(private compraCartaoService: CompraCartaoService) { }
+  constructor(private compraCartaoService: CompraCartaoService) {}
 
   ngOnInit(): void {
-    this.buscarTodos()
+    this.buscarTodos();
   }
 
   buscarTodos(): void {
-    this.compraCartaoService.listarTodos().subscribe(
-      (result: CompraCartao[]) => {
+    this.compraCartaoService
+      .listarTodos()
+      .subscribe((result: CompraCartao[]) => {
         this.ComprasCartao = result ? result : [];
-      }
-    );
+      });
+  }
+
+  deletar(id: number): void {
+    this.compraCartaoService.deletar(id).subscribe(() => {
+      this.buscarTodos();
+    });
   }
 }

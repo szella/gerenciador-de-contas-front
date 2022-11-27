@@ -6,13 +6,13 @@ import { Cartao } from '../model/cartao';
 import { CartaoEditar } from '../model/cartao-editar';
 import { CartaoSalvar } from '../model/cartao-salvar';
 
-const URL = environment.url_api + "/cartoes"
+const URL = environment.url_api + '/cartoes';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class CartaoService {
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   listarTodos(): Observable<Cartao[]> {
     return this.http.get<Cartao[]>(`${URL}`);
@@ -23,11 +23,11 @@ export class CartaoService {
   }
 
   salvar(object: CartaoSalvar): Observable<Cartao> {
-    return this.http.post<Cartao>(`${URL}`, object)
+    return this.http.post<Cartao>(`${URL}`, object);
   }
 
   editar(id: number, object: CartaoEditar): Observable<Cartao> {
-    return this.http.put<Cartao>(`${URL}/${id}`, object)
+    return this.http.put<Cartao>(`${URL}/${id}`, object);
   }
 
   deletar(id: number): Observable<void> {

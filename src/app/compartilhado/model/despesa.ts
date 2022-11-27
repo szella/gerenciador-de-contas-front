@@ -1,4 +1,4 @@
 export interface Despesa {
-    id?: number
-    nome?: string
+  id?: number;
+  nome?: string;
 }

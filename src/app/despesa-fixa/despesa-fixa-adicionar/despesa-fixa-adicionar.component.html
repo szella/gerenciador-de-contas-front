@@ -1,0 +1,30 @@
+<form [formGroup]="formulario" (submit)="salvar()">
+  <div>
+    Valor:
+    <input type="number" formControlName="valor" />
+  </div>
+  <div>
+    Mês:
+    <input type="number" formControlName="mes" />
+  </div>
+  <div>
+    Ano:
+    <input type="number" formControlName="ano" />
+  </div>
+  <div>
+    Período:
+    <input type="number" formControlName="periodo" />
+  </div>
+  <div>
+    Despesa:
+    <select formControlName="idDespesa">
+      <option *ngFor="let despesa of despesas" [value]="despesa.id">
+        {{ despesa.nome }}
+      </option>
+    </select>
+  </div>
+
+  <div>
+    <button type="submit" [disabled]="!this.formulario.valid">Salvar</button>
+  </div>
+</form>

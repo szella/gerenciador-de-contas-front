@@ -1,17 +1,19 @@
 <div>
-    <a routerLink="adicionar">Adicionar</a>
+  <a routerLink="adicionar">Adicionar</a>
 </div>
 <table>
-    <thead>
-        <th>Id</th>
-        <th>Nome</th>
-        <th>Ação</th>
-    </thead>
-    <tbody>
-        <tr *ngFor="let cartao of cartoes">
-            <td>{{cartao.id}}</td>
-            <td>{{cartao.nome}}</td>
-            <td></td>
-        </tr>
-    </tbody>
+  <thead>
+    <th>Id</th>
+    <th>Nome</th>
+    <th>Ação</th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let cartao of cartoes">
+      <td>{{ cartao.id }}</td>
+      <td>{{ cartao.nome }}</td>
+      <td>
+        <button type="button" (click)="deletar(cartao.id!)">Deletar</button>
+      </td>
+    </tr>
+  </tbody>
 </table>
