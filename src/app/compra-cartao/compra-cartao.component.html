@@ -10,6 +10,7 @@
     <th>Ano</th>
     <th>Data Cadastro</th>
     <th>Cartão</th>
+    <th>Agrupamento</th>
     <th>Ação</th>
   </thead>
   <tbody>
@@ -21,6 +22,7 @@
       <td>{{ compraCartao.ano }}</td>
       <td>{{ compraCartao.dataCadastro }}</td>
       <td>{{ compraCartao.cartao?.nome }}</td>
+      <td>{{ compraCartao.agrupamento }}</td>
       <td>
         <button type="button" (click)="deletar(compraCartao.id!)">
           Deletar

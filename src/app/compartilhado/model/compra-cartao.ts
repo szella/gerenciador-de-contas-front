@@ -7,5 +7,6 @@ export interface CompraCartao {
   mes?: number;
   ano?: number;
   dataCadastro?: Date;
+  agrupamento?: string;
   cartao?: Cartao;
 }
