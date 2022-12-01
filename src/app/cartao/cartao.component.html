@@ -1,5 +1,5 @@
 <div>
-  <a routerLink="adicionar">Adicionar</a>
+  <a mat-raised-button routerLink="adicionar">Adicionar</a>
 </div>
 <table>
   <thead>
@@ -12,7 +12,14 @@
       <td>{{ cartao.id }}</td>
       <td>{{ cartao.nome }}</td>
       <td>
-        <button type="button" (click)="deletar(cartao.id!)">Deletar</button>
+        <button
+          mat-raised-button
+          color="warn"
+          type="button"
+          (click)="deletar(cartao.id!)"
+        >
+          Deletar
+        </button>
       </td>
     </tr>
   </tbody>

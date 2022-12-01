@@ -16,6 +16,8 @@ import { DespesaAdicionarComponent } from './despesa/despesa-adicionar/despesa-a
 import { DespesaComponent } from './despesa/despesa.component';
 import { GastoComponent } from './gasto/gasto.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatButtonModule} from '@angular/material/button';
+
 
 @NgModule({
   declarations: [
@@ -33,10 +35,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
-    BrowserAnimationsModule,
+
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent],

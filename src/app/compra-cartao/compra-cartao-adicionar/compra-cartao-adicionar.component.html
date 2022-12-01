@@ -1,5 +1,5 @@
 <div>
-  <a routerLink="/compras-cartao">Voltar</a>
+  <a mat-raised-button routerLink="/compras-cartao">Voltar</a>
 </div>
 <form [formGroup]="formulario" (submit)="salvar()">
   <div>
@@ -32,6 +32,13 @@
   </div>
 
   <div>
-    <button type="submit" [disabled]="!this.formulario.valid">Salvar</button>
+    <button
+      mat-raised-button
+      color="primary"
+      type="submit"
+      [disabled]="!this.formulario.valid"
+    >
+      Salvar
+    </button>
   </div>
 </form>
