@@ -15,6 +15,7 @@ import { DespesaFixaComponent } from './despesa-fixa/despesa-fixa.component';
 import { DespesaAdicionarComponent } from './despesa/despesa-adicionar/despesa-adicionar.component';
 import { DespesaComponent } from './despesa/despesa.component';
 import { GastoComponent } from './gasto/gasto.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { GastoComponent } from './gasto/gasto.component';
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

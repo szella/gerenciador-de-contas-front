@@ -1,17 +1,26 @@
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
 table {
-    border-collapse: collapse;
-width: 90vw;
-margin: auto;
+  border-collapse: collapse;
+  width: 90vw;
+  margin: auto;
 
-    thead th {
-        border-bottom: solid;
-        border-width: 1px;
-        text-align: center;
-    }
+  thead th {
+    border-bottom: solid;
+    border-width: 1px;
+    text-align: center;
+  }
 
-    tbody tr td {
-        border-bottom: solid;
-        border-width: 1px;
-        text-align: center;
-    }
+  tbody tr td {
+    border-bottom: solid;
+    border-width: 1px;
+    text-align: center;
+  }
 }
