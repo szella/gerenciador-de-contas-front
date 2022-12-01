@@ -3,6 +3,11 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CabecalhoComponent } from './cabecalho/cabecalho.component';
@@ -15,9 +20,6 @@ import { DespesaFixaComponent } from './despesa-fixa/despesa-fixa.component';
 import { DespesaAdicionarComponent } from './despesa/despesa-adicionar/despesa-adicionar.component';
 import { DespesaComponent } from './despesa/despesa.component';
 import { GastoComponent } from './gasto/gasto.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatButtonModule} from '@angular/material/button';
-
 
 @NgModule({
   declarations: [
@@ -40,7 +42,10 @@ import {MatButtonModule} from '@angular/material/button';
     HttpClientModule,
     ReactiveFormsModule,
 
-    MatButtonModule
+    MatButtonModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatSelectModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

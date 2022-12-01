@@ -2,30 +2,34 @@
   <a mat-raised-button routerLink="/despesas-fixas">Voltar</a>
 </div>
 <form [formGroup]="formulario" (submit)="salvar()">
-  <div>
-    Valor:
-    <input type="number" formControlName="valor" />
-  </div>
-  <div>
-    Mês:
-    <input type="number" formControlName="mes" />
-  </div>
-  <div>
-    Ano:
-    <input type="number" formControlName="ano" />
-  </div>
-  <div>
-    Período:
-    <input type="number" formControlName="periodo" />
-  </div>
-  <div>
-    Despesa:
-    <select formControlName="idDespesa">
-      <option *ngFor="let despesa of despesas" [value]="despesa.id">
+  <mat-form-field appearance="outline">
+    <mat-label>Valor</mat-label>
+    <input matInput type="number" formControlName="valor" />
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Mês</mat-label>
+    <input matInput type="number" formControlName="mes" />
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Ano</mat-label>
+    <input matInput type="number" formControlName="ano" />
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Período</mat-label>
+    <input matInput type="number" formControlName="periodo" />
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Despesa</mat-label>
+    <mat-select formControlName="idDespesa">
+      <mat-option *ngFor="let despesa of despesas" [value]="despesa.id">
         {{ despesa.nome }}
-      </option>
-    </select>
-  </div>
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
 
   <div>
     <button
