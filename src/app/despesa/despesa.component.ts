@@ -9,7 +9,8 @@ import { DespesaService } from '../compartilhado/service/despesa.service';
 })
 export class DespesaComponent {
   despesas: Despesa[] = [];
-
+  colunasVisiveis: string[] = ['id', 'nome', 'acao'];
+  
   constructor(private despesaService: DespesaService) {}
 
   ngOnInit(): void {

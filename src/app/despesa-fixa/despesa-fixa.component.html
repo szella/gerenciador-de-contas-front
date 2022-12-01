@@ -1,34 +1,56 @@
 <div>
   <a mat-raised-button routerLink="adicionar">Adicionar</a>
 </div>
-<table>
-  <thead>
-    <th>Id</th>
-    <th>Despesa</th>
-    <th>Valor</th>
-    <th>Mês</th>
-    <th>Ano</th>
-    <th>Data Cadastro</th>
-    <th>Ação</th>
-  </thead>
-  <tbody>
-    <tr *ngFor="let despesaFixa of despesasFixa">
-      <td>{{ despesaFixa.id }}</td>
-      <td>{{ despesaFixa.despesa?.nome }}</td>
-      <td>{{ despesaFixa.valor }}</td>
-      <td>{{ despesaFixa.mes }}</td>
-      <td>{{ despesaFixa.ano }}</td>
-      <td>{{ despesaFixa.dataCadastro }}</td>
-      <td>
-        <button
-          mat-raised-button
-          color="warn"
-          type="button"
-          (click)="deletar(despesaFixa.id!)"
-        >
-          Deletar
-        </button>
-      </td>
-    </tr>
-  </tbody>
+
+<table mat-table [dataSource]="despesasFixa" class="mat-elevation-z8">
+  <tr mat-header-row *matHeaderRowDef="colunasVisiveis"></tr>
+  <tr mat-row *matRowDef="let row; columns: colunasVisiveis"></tr>
+
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef>Id</th>
+    <td mat-cell *matCellDef="let despesaFixa">{{ despesaFixa.id }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="despesa">
+    <th mat-header-cell *matHeaderCellDef>Despesa</th>
+    <td mat-cell *matCellDef="let despesaFixa">
+      {{ despesaFixa.despesa?.nome }}
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="valor">
+    <th mat-header-cell *matHeaderCellDef>Valor</th>
+    <td mat-cell *matCellDef="let compraCartao">{{ compraCartao.valor }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="mes">
+    <th mat-header-cell *matHeaderCellDef>Mês</th>
+    <td mat-cell *matCellDef="let compraCartao">{{ compraCartao.mes }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="ano">
+    <th mat-header-cell *matHeaderCellDef>Ano</th>
+    <td mat-cell *matCellDef="let compraCartao">{{ compraCartao.ano }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="dataCadastro">
+    <th mat-header-cell *matHeaderCellDef>Data Cadastro</th>
+    <td mat-cell *matCellDef="let compraCartao">
+      {{ compraCartao.dataCadastro }}
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="acao">
+    <th mat-header-cell *matHeaderCellDef>Ação</th>
+    <td mat-cell *matCellDef="let despesaFixa">
+      <button
+        mat-raised-button
+        color="warn"
+        type="button"
+        (click)="deletar(despesaFixa.id!)"
+      >
+        Deletar
+      </button>
+    </td>
+  </ng-container>
 </table>

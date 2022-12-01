@@ -1,26 +1,32 @@
 <div>
   <a mat-raised-button routerLink="adicionar">Adicionar</a>
 </div>
-<table>
-  <thead>
-    <th>Id</th>
-    <th>Nome</th>
-    <th>Ação</th>
-  </thead>
-  <tbody>
-    <tr *ngFor="let despesa of despesas">
-      <td>{{ despesa.id }}</td>
-      <td>{{ despesa.nome }}</td>
-      <td>
-        <button
-          mat-raised-button
-          color="warn"
-          type="button"
-          (click)="deletar(despesa.id!)"
-        >
-          Deletar
-        </button>
-      </td>
-    </tr>
-  </tbody>
+
+<table mat-table [dataSource]="despesas" class="mat-elevation-z8">
+  <tr mat-header-row *matHeaderRowDef="colunasVisiveis"></tr>
+  <tr mat-row *matRowDef="let row; columns: colunasVisiveis"></tr>
+
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef>Id</th>
+    <td mat-cell *matCellDef="let despesa">{{ despesa.id }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="nome">
+    <th mat-header-cell *matHeaderCellDef>Nome</th>
+    <td mat-cell *matCellDef="let despesa">{{ despesa.nome }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="acao">
+    <th mat-header-cell *matHeaderCellDef>Ação</th>
+    <td mat-cell *matCellDef="let despesa">
+      <button
+        mat-raised-button
+        color="warn"
+        type="button"
+        (click)="deletar(despesa.id!)"
+      >
+        Deletar
+      </button>
+    </td>
+  </ng-container>
 </table>

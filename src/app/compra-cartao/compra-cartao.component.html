@@ -1,38 +1,68 @@
 <div>
   <a mat-raised-button routerLink="adicionar">Adicionar</a>
 </div>
-<table>
-  <thead>
-    <th>Id</th>
-    <th>Nome</th>
-    <th>Valor</th>
-    <th>Mês</th>
-    <th>Ano</th>
-    <th>Data Cadastro</th>
-    <th>Cartão</th>
-    <th>Agrupamento</th>
-    <th>Ação</th>
-  </thead>
-  <tbody>
-    <tr *ngFor="let compraCartao of ComprasCartao">
-      <td>{{ compraCartao.id }}</td>
-      <td>{{ compraCartao.nome }}</td>
-      <td>{{ compraCartao.valor }}</td>
-      <td>{{ compraCartao.mes }}</td>
-      <td>{{ compraCartao.ano }}</td>
-      <td>{{ compraCartao.dataCadastro }}</td>
-      <td>{{ compraCartao.cartao?.nome }}</td>
-      <td>{{ compraCartao.agrupamento }}</td>
-      <td>
-        <button
-          mat-raised-button
-          color="warn"
-          type="button"
-          (click)="deletar(compraCartao.id!)"
-        >
-          Deletar
-        </button>
-      </td>
-    </tr>
-  </tbody>
+
+<table mat-table [dataSource]="ComprasCartao" class="mat-elevation-z8">
+  <tr mat-header-row *matHeaderRowDef="colunasVisiveis"></tr>
+  <tr mat-row *matRowDef="let row; columns: colunasVisiveis"></tr>
+
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef>Id</th>
+    <td mat-cell *matCellDef="let compraCartao">{{ compraCartao.id }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="nome">
+    <th mat-header-cell *matHeaderCellDef>Nome</th>
+    <td mat-cell *matCellDef="let compraCartao">{{ compraCartao.nome }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="valor">
+    <th mat-header-cell *matHeaderCellDef>Valor</th>
+    <td mat-cell *matCellDef="let compraCartao">{{ compraCartao.valor }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="mes">
+    <th mat-header-cell *matHeaderCellDef>Mês</th>
+    <td mat-cell *matCellDef="let compraCartao">{{ compraCartao.mes }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="ano">
+    <th mat-header-cell *matHeaderCellDef>Ano</th>
+    <td mat-cell *matCellDef="let compraCartao">{{ compraCartao.ano }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="dataCadastro">
+    <th mat-header-cell *matHeaderCellDef>Data Cadastro</th>
+    <td mat-cell *matCellDef="let compraCartao">
+      {{ compraCartao.dataCadastro }}
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="cartao">
+    <th mat-header-cell *matHeaderCellDef>Cartão</th>
+    <td mat-cell *matCellDef="let compraCartao">
+      {{ compraCartao.cartao?.nome }}
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="agrupamento">
+    <th mat-header-cell *matHeaderCellDef>Agrupamento</th>
+    <td mat-cell *matCellDef="let compraCartao">
+      {{ compraCartao.agrupamento }}
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="acao">
+    <th mat-header-cell *matHeaderCellDef>Ação</th>
+    <td mat-cell *matCellDef="let compraCartao">
+      <button
+        mat-raised-button
+        color="warn"
+        type="button"
+        (click)="deletar(compraCartao.id!)"
+      >
+        Deletar
+      </button>
+    </td>
+  </ng-container>
 </table>

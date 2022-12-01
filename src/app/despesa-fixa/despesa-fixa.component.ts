@@ -9,6 +9,15 @@ import { DespesaFixaService } from '../compartilhado/service/despesa-fixa.servic
 })
 export class DespesaFixaComponent {
   despesasFixa: DespesaFixa[] = [];
+  colunasVisiveis: string[] = [
+    'id',
+    'despesa',
+    'valor',
+    'mes',
+    'ano',
+    'dataCadastro',
+    'acao',
+  ];
 
   constructor(private despesaFixaService: DespesaFixaService) {}
 

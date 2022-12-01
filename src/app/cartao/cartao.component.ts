@@ -9,6 +9,7 @@ import { CartaoService } from '../compartilhado/service/cartao.service';
 })
 export class CartaoComponent implements OnInit {
   cartoes: Cartao[] = [];
+  colunasVisiveis: string[] = ['id', 'nome', 'acao'];
 
   constructor(private cartaoService: CartaoService) {}
 

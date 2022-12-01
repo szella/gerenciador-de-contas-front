@@ -9,6 +9,17 @@ import { CompraCartaoService } from '../compartilhado/service/compra-cartao.serv
 })
 export class CompraCartaoComponent implements OnInit {
   ComprasCartao: CompraCartao[] = [];
+  colunasVisiveis: string[] = [
+    'id',
+    'nome',
+    'valor',
+    'mes',
+    'ano',
+    'dataCadastro',
+    'agrupamento',
+    'cartao',
+    'acao',
+  ];
 
   constructor(private compraCartaoService: CompraCartaoService) {}
 
