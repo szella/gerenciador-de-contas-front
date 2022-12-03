@@ -1,0 +1,61 @@
+<mat-toolbar>
+  <a mat-raised-button routerLink="adicionar">Adicionar</a>
+</mat-toolbar>
+
+<table mat-table [dataSource]="recebimentos" class="mat-elevation-z8">
+  <tr mat-header-row *matHeaderRowDef="colunasVisiveis"></tr>
+  <tr mat-row *matRowDef="let row; columns: colunasVisiveis"></tr>
+
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef>Id</th>
+    <td mat-cell *matCellDef="let recebimento">{{ recebimento.id }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="nome">
+    <th mat-header-cell *matHeaderCellDef>Nome</th>
+    <td mat-cell *matCellDef="let recebimento">{{ recebimento.nome }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="valor">
+    <th mat-header-cell *matHeaderCellDef>Valor</th>
+    <td mat-cell *matCellDef="let recebimento">{{ recebimento.valor }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="mes">
+    <th mat-header-cell *matHeaderCellDef>Mês</th>
+    <td mat-cell *matCellDef="let recebimento">{{ recebimento.mes }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="ano">
+    <th mat-header-cell *matHeaderCellDef>Ano</th>
+    <td mat-cell *matCellDef="let recebimento">{{ recebimento.ano }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="dataCadastro">
+    <th mat-header-cell *matHeaderCellDef>Data Cadastro</th>
+    <td mat-cell *matCellDef="let recebimento">
+      {{ recebimento.dataCadastro }}
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="agrupamento">
+    <th mat-header-cell *matHeaderCellDef>Agrupamento</th>
+    <td mat-cell *matCellDef="let recebimento">
+      {{ recebimento.agrupamento }}
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="acao">
+    <th mat-header-cell *matHeaderCellDef>Ação</th>
+    <td mat-cell *matCellDef="let recebimento">
+      <button
+        mat-raised-button
+        color="warn"
+        type="button"
+        (click)="deletar(recebimento.id!)"
+      >
+        Deletar
+      </button>
+    </td>
+  </ng-container>
+</table>

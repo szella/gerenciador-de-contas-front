@@ -21,6 +21,8 @@ import { DespesaFixaComponent } from './despesa-fixa/despesa-fixa.component';
 import { DespesaAdicionarComponent } from './despesa/despesa-adicionar/despesa-adicionar.component';
 import { DespesaComponent } from './despesa/despesa.component';
 import { GastoComponent } from './gasto/gasto.component';
+import { RecebimentoComponent } from './recebimento/recebimento.component';
+import { RecebimentoAdicionarComponent } from './recebimento/recebimento-adicionar/recebimento-adicionar.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +37,8 @@ import { GastoComponent } from './gasto/gasto.component';
     DespesaFixaComponent,
     DespesaFixaAdicionarComponent,
     GastoComponent,
+    RecebimentoComponent,
+    RecebimentoAdicionarComponent,
   ],
   imports: [
     BrowserModule,

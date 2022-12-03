@@ -10,6 +10,8 @@ import { DespesaAdicionarComponent } from './despesa/despesa-adicionar/despesa-a
 import { DespesaComponent } from './despesa/despesa.component';
 import { GastoComponent } from './gasto/gasto.component';
 import { HomeComponent } from './home/home.component';
+import { RecebimentoAdicionarComponent } from './recebimento/recebimento-adicionar/recebimento-adicionar.component';
+import { RecebimentoComponent } from './recebimento/recebimento.component';
 
 const routes: Routes = [
   {
@@ -66,6 +68,18 @@ const routes: Routes = [
       {
         path: 'adicionar',
         component: DespesaFixaAdicionarComponent,
+      },
+    ],
+  },{
+    path: 'recebimentos',
+    children: [
+      {
+        path: '',
+        component: RecebimentoComponent,
+      },
+      {
+        path: 'adicionar',
+        component: RecebimentoAdicionarComponent,
       },
     ],
   },
