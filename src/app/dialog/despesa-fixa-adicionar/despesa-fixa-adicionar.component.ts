@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { MatDialogRef } from '@angular/material/dialog';
 import { Despesa } from 'src/app/compartilhado/model/despesa';
 import { DespesaFixa } from 'src/app/compartilhado/model/despesa-fixa';
 import { DespesaFixaSalvar } from 'src/app/compartilhado/model/despesa-fixa-salvar';
@@ -19,9 +19,9 @@ export class DespesaFixaAdicionarComponent {
 
   constructor(
     private fb: FormBuilder,
-    private router: Router,
     private despesaFixaService: DespesaFixaService,
-    private despesaService: DespesaService
+    private despesaService: DespesaService,
+    public dialogRef: MatDialogRef<DespesaFixaAdicionarComponent>
   ) {}
 
   ngOnInit(): void {
@@ -50,7 +50,7 @@ export class DespesaFixaAdicionarComponent {
       const data = this.formulario.value as DespesaFixaSalvar;
 
       this.despesaFixaService.salvar(data).subscribe((result: DespesaFixa) => {
-        this.router.navigateByUrl('/despesas-fixas');
+        this.dialogRef.close(true);
       });
     }
   }

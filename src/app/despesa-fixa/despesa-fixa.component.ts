@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { DespesaFixa } from '../compartilhado/model/despesa-fixa';
 import { DespesaFixaService } from '../compartilhado/service/despesa-fixa.service';
+import { DespesaFixaAdicionarComponent } from '../dialog/despesa-fixa-adicionar/despesa-fixa-adicionar.component';
 
 @Component({
   selector: 'app-despesa-fixa',
@@ -19,7 +21,10 @@ export class DespesaFixaComponent {
     'acao',
   ];
 
-  constructor(private despesaFixaService: DespesaFixaService) {}
+  constructor(
+    private despesaFixaService: DespesaFixaService,
+    public dialog: MatDialog
+  ) {}
 
   ngOnInit(): void {
     this.buscarTodos();
@@ -34,6 +39,16 @@ export class DespesaFixaComponent {
   deletar(id: number): void {
     this.despesaFixaService.deletar(id).subscribe(() => {
       this.buscarTodos();
+    });
+  }
+
+  abrirDialogAdicionar() {
+    const dialogRef = this.dialog.open(DespesaFixaAdicionarComponent);
+
+    dialogRef.afterClosed().subscribe((salvou: boolean) => {
+      if (salvou) {
+        this.buscarTodos();
+      }
     });
   }
 }

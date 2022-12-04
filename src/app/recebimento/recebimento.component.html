@@ -1,5 +1,5 @@
 <mat-toolbar>
-  <a mat-raised-button routerLink="adicionar">Adicionar</a>
+  <a mat-raised-button (click)="abrirDialogAdicionar()">Adicionar</a>
 </mat-toolbar>
 
 <table mat-table [dataSource]="recebimentos" class="mat-elevation-z8">

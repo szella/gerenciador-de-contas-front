@@ -1,0 +1,24 @@
+<h1 mat-dialog-title>Adicionar Cartão</h1>
+
+<form [formGroup]="formulario" (submit)="salvar()">
+  <mat-dialog-content>
+    <mat-form-field appearance="outline">
+      <mat-label>Nome</mat-label>
+      <input matInput type="text" formControlName="nome" />
+    </mat-form-field>
+  </mat-dialog-content>
+
+  <mat-dialog-actions>
+    <button mat-raised-button mat-dialog-close>Cancelar</button>
+    <button
+      mat-raised-button
+      cdkFocusInitial
+      [mat-dialog-close]="true"
+      color="primary"
+      type="submit"
+      [disabled]="!this.formulario.valid"
+    >
+      Salvar
+    </button>
+  </mat-dialog-actions>
+</form>

@@ -1,0 +1,48 @@
+<h1 mat-dialog-title>Adicionar Despesa Fixa</h1>
+
+<form [formGroup]="formulario" (submit)="salvar()">
+  <mat-dialog-content>
+    <mat-form-field appearance="outline">
+      <mat-label>Valor</mat-label>
+      <input matInput type="number" formControlName="valor" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Mês</mat-label>
+      <input matInput type="number" formControlName="mes" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Ano</mat-label>
+      <input matInput type="number" formControlName="ano" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Período</mat-label>
+      <input matInput type="number" formControlName="periodo" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Despesa</mat-label>
+      <mat-select formControlName="idDespesa">
+        <mat-option *ngFor="let despesa of despesas" [value]="despesa.id">
+          {{ despesa.nome }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </mat-dialog-content>
+
+  <mat-dialog-actions>
+    <button mat-raised-button mat-dialog-close>Cancelar</button>
+    <button
+      mat-raised-button
+      cdkFocusInitial
+      [mat-dialog-close]="true"
+      color="primary"
+      type="submit"
+      [disabled]="!this.formulario.valid"
+    >
+      Salvar
+    </button>
+  </mat-dialog-actions>
+</form>

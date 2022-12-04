@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { MatDialogRef } from '@angular/material/dialog';
 import { Despesa } from 'src/app/compartilhado/model/despesa';
 import { DespesaSalvar } from 'src/app/compartilhado/model/despesa-salvar';
 import { DespesaService } from 'src/app/compartilhado/service/despesa.service';
@@ -15,8 +15,8 @@ export class DespesaAdicionarComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private router: Router,
-    private despesaService: DespesaService
+    private despesaService: DespesaService,
+    public dialogRef: MatDialogRef<DespesaAdicionarComponent>
   ) {}
 
   ngOnInit(): void {
@@ -34,7 +34,7 @@ export class DespesaAdicionarComponent implements OnInit {
       const data = this.formulario.value as DespesaSalvar;
 
       this.despesaService.salvar(data).subscribe((result: Despesa) => {
-        this.router.navigateByUrl('/despesas');
+        this.dialogRef.close(true);
       });
     }
   }

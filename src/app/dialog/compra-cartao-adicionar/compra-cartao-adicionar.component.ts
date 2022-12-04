@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { MatDialogRef } from '@angular/material/dialog';
 import { Cartao } from 'src/app/compartilhado/model/cartao';
 import { CompraCartaoSalvar } from 'src/app/compartilhado/model/compra-cartao-salvar';
 import { CartaoService } from 'src/app/compartilhado/service/cartao.service';
@@ -18,9 +18,9 @@ export class CompraCartaoAdicionarComponent {
 
   constructor(
     private fb: FormBuilder,
-    private router: Router,
     private compraCartaoService: CompraCartaoService,
-    private cartaoService: CartaoService
+    private cartaoService: CartaoService,
+    public dialogRef: MatDialogRef<CompraCartaoAdicionarComponent>
   ) {}
 
   ngOnInit(): void {
@@ -50,7 +50,7 @@ export class CompraCartaoAdicionarComponent {
       const data = this.formulario.value as CompraCartaoSalvar;
 
       this.compraCartaoService.salvar(data).subscribe((result: Cartao) => {
-        this.router.navigateByUrl('/compras-cartao');
+        this.dialogRef.close(true);
       });
     }
   }

@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
-import { Validators } from '@angular/forms';
-import { Router } from '@angular/router';
-import { Cartao } from 'src/app/compartilhado/model/cartao';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatDialogRef } from '@angular/material/dialog';
 import { CartaoSalvar } from 'src/app/compartilhado/model/cartao-salvar';
 import { CartaoService } from 'src/app/compartilhado/service/cartao.service';
 
@@ -16,8 +14,8 @@ export class CartaoAdicionarComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private router: Router,
-    private cartaoService: CartaoService
+    private cartaoService: CartaoService,
+    public dialogRef: MatDialogRef<CartaoAdicionarComponent>
   ) {}
 
   ngOnInit(): void {
@@ -34,8 +32,8 @@ export class CartaoAdicionarComponent implements OnInit {
     if (this.formulario.valid) {
       const data = this.formulario.value as CartaoSalvar;
 
-      this.cartaoService.salvar(data).subscribe((result: Cartao) => {
-        this.router.navigateByUrl('/cartoes');
+      this.cartaoService.salvar(data).subscribe(() => {
+        this.dialogRef.close(true);
       });
     }
   }

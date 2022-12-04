@@ -8,9 +8,8 @@ describe('CartaoAdicionarComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CartaoAdicionarComponent ]
-    })
-    .compileComponents();
+      declarations: [CartaoAdicionarComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(CartaoAdicionarComponent);
     component = fixture.componentInstance;
