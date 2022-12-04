@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Despesa } from 'src/app/compartilhado/model/despesa';
 import { DespesaSalvar } from 'src/app/compartilhado/model/despesa-salvar';
 import { DespesaService } from 'src/app/compartilhado/service/despesa.service';
@@ -16,7 +17,8 @@ export class DespesaAdicionarComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private despesaService: DespesaService,
-    public dialogRef: MatDialogRef<DespesaAdicionarComponent>
+    public dialogRef: MatDialogRef<DespesaAdicionarComponent>,
+    readonly snackBar: MatSnackBar
   ) {}
 
   ngOnInit(): void {
@@ -35,6 +37,7 @@ export class DespesaAdicionarComponent implements OnInit {
 
       this.despesaService.salvar(data).subscribe((result: Despesa) => {
         this.dialogRef.close(true);
+        this.snackBar.open('Salvou com sucesso!');
       });
     }
   }

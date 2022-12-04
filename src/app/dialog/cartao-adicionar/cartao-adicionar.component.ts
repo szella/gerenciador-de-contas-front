@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { CartaoSalvar } from 'src/app/compartilhado/model/cartao-salvar';
 import { CartaoService } from 'src/app/compartilhado/service/cartao.service';
 
@@ -15,7 +16,8 @@ export class CartaoAdicionarComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private cartaoService: CartaoService,
-    public dialogRef: MatDialogRef<CartaoAdicionarComponent>
+    public dialogRef: MatDialogRef<CartaoAdicionarComponent>,
+    private snackBar: MatSnackBar
   ) {}
 
   ngOnInit(): void {
@@ -34,6 +36,7 @@ export class CartaoAdicionarComponent implements OnInit {
 
       this.cartaoService.salvar(data).subscribe(() => {
         this.dialogRef.close(true);
+        this.snackBar.open('Salvou com sucesso!');
       });
     }
   }

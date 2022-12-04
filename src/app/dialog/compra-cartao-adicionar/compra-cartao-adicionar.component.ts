@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Cartao } from 'src/app/compartilhado/model/cartao';
 import { CompraCartaoSalvar } from 'src/app/compartilhado/model/compra-cartao-salvar';
 import { CartaoService } from 'src/app/compartilhado/service/cartao.service';
@@ -20,7 +21,8 @@ export class CompraCartaoAdicionarComponent {
     private fb: FormBuilder,
     private compraCartaoService: CompraCartaoService,
     private cartaoService: CartaoService,
-    public dialogRef: MatDialogRef<CompraCartaoAdicionarComponent>
+    public dialogRef: MatDialogRef<CompraCartaoAdicionarComponent>,
+    readonly snackBar: MatSnackBar
   ) {}
 
   ngOnInit(): void {
@@ -51,6 +53,7 @@ export class CompraCartaoAdicionarComponent {
 
       this.compraCartaoService.salvar(data).subscribe((result: Cartao) => {
         this.dialogRef.close(true);
+        this.snackBar.open('Salvou com sucesso!');
       });
     }
   }
