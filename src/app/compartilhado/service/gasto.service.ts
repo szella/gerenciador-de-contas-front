@@ -13,6 +13,6 @@ export class GastoService {
   constructor(private http: HttpClient) {}
 
   listarTodos(): Observable<GastosPorAno[]> {
-    return this.http.get<GastosPorAno[]>(`${URL}`);
+    return this.http.get<GastosPorAno[]>(`${URL}/ano/mes`);
   }
 }
