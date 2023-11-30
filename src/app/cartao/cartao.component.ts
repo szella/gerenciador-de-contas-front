@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Cartao } from '../compartilhado/model/cartao';
 import { CartaoService } from '../compartilhado/service/cartao.service';
-import { CartaoAdicionarComponent } from '../dialog/cartao-adicionar/cartao-adicionar.component';
+import { CartaoFormularioComponent } from './cartao-formulario/cartao-formulario.component';
 
 @Component({
   selector: 'app-cartao',
@@ -32,7 +32,21 @@ export class CartaoComponent implements OnInit {
   }
 
   abrirDialogAdicionar() {
-    const dialogRef = this.dialog.open(CartaoAdicionarComponent);
+    const dialogRef = this.dialog.open(CartaoFormularioComponent, {
+      data: { acao: 'criar' },
+    });
+
+    dialogRef.afterClosed().subscribe((salvou: boolean) => {
+      if (salvou) {
+        this.buscarTodos();
+      }
+    });
+  }
+
+  abrirDialogEditar(id: number): void {
+    const dialogRef = this.dialog.open(CartaoFormularioComponent, {
+      data: { acao: 'editar', id },
+    });
 
     dialogRef.afterClosed().subscribe((salvou: boolean) => {
       if (salvou) {

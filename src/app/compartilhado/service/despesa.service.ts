@@ -6,7 +6,7 @@ import { Despesa } from '../model/despesa';
 import { DespesaEditar } from '../model/despesa-editar';
 import { DespesaSalvar } from '../model/despesa-salvar';
 
-const URL = environment.url_api + '/despesas';
+const URL = environment.url_api + '/v1/despesas';
 
 @Injectable({
   providedIn: 'root',

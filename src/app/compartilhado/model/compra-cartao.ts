@@ -10,3 +10,9 @@ export interface CompraCartao {
   agrupamento?: string;
   cartao?: Cartao;
 }
+
+export interface CompraCartaoAgrupado {
+  anoMes?: Date;
+  valorTotal?: number;
+  comprasCartao?: CompraCartao[];
+}

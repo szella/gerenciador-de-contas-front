@@ -6,7 +6,7 @@ import { Cartao } from '../model/cartao';
 import { CartaoEditar } from '../model/cartao-editar';
 import { CartaoSalvar } from '../model/cartao-salvar';
 
-const URL = environment.url_api + '/cartoes';
+const URL = environment.url_api + '/v1/cartoes';
 
 @Injectable({
   providedIn: 'root',

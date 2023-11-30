@@ -1,6 +1,6 @@
-<h1 mat-dialog-title>Adicionar Cartão</h1>
+<h1 mat-dialog-title>{{titulo}}</h1>
 
-<form [formGroup]="formulario" (submit)="salvar()">
+<form [formGroup]="formulario" (submit)="salvarAtualizar()">
   <mat-dialog-content>
     <mat-form-field appearance="outline">
       <mat-label>Nome</mat-label>
@@ -18,7 +18,7 @@
       type="submit"
       [disabled]="!this.formulario.valid"
     >
-      Salvar
+      {{btnSalvar}}
     </button>
   </mat-dialog-actions>
 </form>

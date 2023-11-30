@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environment/environment';
-import { CompraCartao } from '../model/compra-cartao';
+import { CompraCartao, CompraCartaoAgrupado } from '../model/compra-cartao';
 import { CompraCartaoEditar } from '../model/compra-cartao-editar';
 import { CompraCartaoSalvar } from '../model/compra-cartao-salvar';
 
@@ -16,6 +16,10 @@ export class CompraCartaoService {
 
   listarTodos(): Observable<CompraCartao[]> {
     return this.http.get<CompraCartao[]>(`${URL}`);
+  }
+
+  listarTodosAgrupados(): Observable<CompraCartaoAgrupado[]> {
+    return this.http.get<CompraCartaoAgrupado[]>(`${URL}/agrupado`);
   }
 
   buscarPorId(id: number): Observable<CompraCartao> {

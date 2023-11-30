@@ -1,8 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { CompraCartao } from '../compartilhado/model/compra-cartao';
+import { CompraCartao, CompraCartaoAgrupado } from '../compartilhado/model/compra-cartao';
 import { CompraCartaoService } from '../compartilhado/service/compra-cartao.service';
 import { CompraCartaoAdicionarComponent } from '../dialog/compra-cartao-adicionar/compra-cartao-adicionar.component';
+import { FlatTreeControl } from '@angular/cdk/tree';
+import { MatTreeFlatDataSource, MatTreeFlattener } from '@angular/material/tree';
+
+
+
+interface ExampleFlatNode {
+  expandable: boolean;
+  name: string;
+  level: number;
+}
 
 @Component({
   selector: 'app-compra-cartao',
@@ -10,7 +20,7 @@ import { CompraCartaoAdicionarComponent } from '../dialog/compra-cartao-adiciona
   styleUrls: ['./compra-cartao.component.scss'],
 })
 export class CompraCartaoComponent implements OnInit {
-  ComprasCartao: CompraCartao[] = [];
+  comprasCartaoAgrupado: CompraCartaoAgrupado[] = [];
   colunasVisiveis: string[] = [
     'id',
     'nome',
@@ -26,7 +36,7 @@ export class CompraCartaoComponent implements OnInit {
   constructor(
     private compraCartaoService: CompraCartaoService,
     public dialog: MatDialog
-  ) {}
+  ) {       }
 
   ngOnInit(): void {
     this.buscarTodos();
@@ -34,9 +44,10 @@ export class CompraCartaoComponent implements OnInit {
 
   buscarTodos(): void {
     this.compraCartaoService
-      .listarTodos()
-      .subscribe((result: CompraCartao[]) => {
-        this.ComprasCartao = result ? result : [];
+      .listarTodosAgrupados()
+      .subscribe((result: CompraCartaoAgrupado[]) => {
+        console.log(result);
+        this.comprasCartaoAgrupado = result ? result : [];
       });
   }
 

@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Despesa } from '../compartilhado/model/despesa';
 import { DespesaService } from '../compartilhado/service/despesa.service';
-import { DespesaAdicionarComponent } from '../dialog/despesa-adicionar/despesa-adicionar.component';
+import { DespesaFormularioComponent } from './despesa-formulario/despesa-formulario.component';
 
 @Component({
   selector: 'app-despesa',
@@ -35,7 +35,21 @@ export class DespesaComponent {
   }
 
   abrirDialogAdicionar() {
-    const dialogRef = this.dialog.open(DespesaAdicionarComponent);
+    const dialogRef = this.dialog.open(DespesaFormularioComponent, {
+      data: { acao: 'criar' },
+    });
+
+    dialogRef.afterClosed().subscribe((salvou: boolean) => {
+      if (salvou) {
+        this.buscarTodos();
+      }
+    });
+  }
+
+  abrirDialogEditar(id: number): void {
+    const dialogRef = this.dialog.open(DespesaFormularioComponent, {
+      data: { acao: 'editar', id },
+    });
 
     dialogRef.afterClosed().subscribe((salvou: boolean) => {
       if (salvou) {

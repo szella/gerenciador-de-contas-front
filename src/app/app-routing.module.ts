@@ -4,7 +4,6 @@ import { CartaoComponent } from './cartao/cartao.component';
 import { CompraCartaoComponent } from './compra-cartao/compra-cartao.component';
 import { DespesaFixaComponent } from './despesa-fixa/despesa-fixa.component';
 import { DespesaComponent } from './despesa/despesa.component';
-import { GastoComponent } from './gasto/gasto.component';
 import { HomeComponent } from './home/home.component';
 import { RecebimentoComponent } from './recebimento/recebimento.component';
 
@@ -58,10 +57,6 @@ const routes: Routes = [
         component: RecebimentoComponent,
       },
     ],
-  },
-  {
-    path: 'gastos',
-    component: GastoComponent,
   },
 ];
 
